@@ -1,5 +1,5 @@
 <template>
-  <v-app style="overflow-y: hidden;">
+  <v-app style="overflow-y: hidden; height: 100vh;">
     <Toolbar />
 
     <v-content>

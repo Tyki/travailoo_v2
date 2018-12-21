@@ -39,7 +39,7 @@ export default {
 
 <style>
 .map-height {
-  height: 100vh;
+  height: calc(100vh - 64px);
 }
 
 .elevation-1 {

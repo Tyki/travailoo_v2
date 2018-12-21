@@ -16,7 +16,7 @@ services:
       - kuzzle_services__memoryStorage__node__host=redis
       - NODE_ENV=production
     volumes:
-      - "./tools/backend/default.config.js:/var/app/default.config.js"
+      - "./tools/backend/.kuzzlerc:/var/app/.kuzzlerc"
 
   redis:
     image: redis:3.2
