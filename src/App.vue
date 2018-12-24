@@ -14,6 +14,7 @@
       </v-layout>
     </v-content>
 
+    <ModalWrapper />
   </v-app>
 </template>
 
@@ -21,13 +22,15 @@
 import Toolbar from './components/layout/Toolbar'
 import MapContainer from './components/map/MapContainer'
 import RightPanel from './components/layout/RightPanel'
+import ModalWrapper from './components/layout/ModalWrapper'
 
 export default {
   name: 'App',
   components: {
     Toolbar,
     MapContainer,
-    RightPanel
+    RightPanel,
+    ModalWrapper
   },
   data () {
     return {

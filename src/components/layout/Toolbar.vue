@@ -12,7 +12,7 @@
 
     <v-spacer></v-spacer>
 
-    <v-btn icon>
+    <v-btn icon @click="openLoginModal">
       Login
     </v-btn>
   </v-toolbar>
@@ -20,6 +20,7 @@
 
 <script>
 import eventBus from '../../services/eventBus/eventbus'
+import { SHOW_LOGIN_MODAL } from '../../store/layout/types.js'
 
 export default {
   name: 'Toolbar',
@@ -33,6 +34,9 @@ export default {
           console.error(error)
         }
       )
+    },
+    openLoginModal () {
+      this.$store.commit(SHOW_LOGIN_MODAL, true)
     }
   }
 }

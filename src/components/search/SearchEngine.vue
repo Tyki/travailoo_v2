@@ -64,7 +64,8 @@ export default {
   name: 'SearchEngine',
   data: function () {
     return {
-      displayMoreFilters: false
+      displayMoreFilters: false,
+      items: []
     }
   }
 }

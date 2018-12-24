@@ -30,6 +30,11 @@ export default {
   name: 'SearchResults',
   components: {
     ResultItem
+  },
+  data: () => {
+    return {
+      items: []
+    }
   }
 }
 </script>
