@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-container grid-list-md style="height:calc(100vh - 64px)" >
-      <v-layout row style="flex-direction: column; padding: 24px; height:calc(100vh - 64px);" >
+      <v-layout row style="flex-direction: column; height:calc(100vh - 64px);" >
         <v-flex xs12 style="flex-grow:1; flex-shrink: 1; flex-basis: 180px;">
           <SearchEngine />
         </v-flex>
