@@ -14,7 +14,7 @@
       </v-layout>
     </v-content>
 
-    <ModalWrapper />
+    <modal-wrapper />
   </v-app>
 </template>
 

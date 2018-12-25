@@ -6,7 +6,6 @@
 
 <script>
 import Login from '../modals/Login'
-import eventBus from '../../services/eventBus/eventbus.js'
 
 export default {
   name: 'ModalWrapper',
@@ -20,4 +19,3 @@ export default {
   }
 }
 </script>
-

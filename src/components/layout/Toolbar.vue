@@ -19,16 +19,13 @@
 </template>
 
 <script>
-import eventBus from '../../services/eventBus/eventbus'
-import { SHOW_LOGIN_MODAL } from '../../store/layout/types.js'
-
 export default {
   name: 'Toolbar',
   methods: {
     detectPosition () {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          eventBus.bus.$emit(eventBus.events.MAP_SETCENTER, position)
+          this.$eventBus.bus.$emit(this.$eventBus.events.MAP_SETCENTER, position)
         },
         (error) => {
           console.error(error)
@@ -36,7 +33,7 @@ export default {
       )
     },
     openLoginModal () {
-      this.$store.commit(SHOW_LOGIN_MODAL, true)
+      this.$eventBus.bus.$emit(this.$eventBus.events.MODAL_LOGIN)
     }
   }
 }
