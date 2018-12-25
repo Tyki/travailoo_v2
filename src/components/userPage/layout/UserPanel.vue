@@ -37,6 +37,16 @@
 
 <script>
 export default {
-  name: 'UserPanel'
+  name: 'UserPanel',
+  data: () => ({
+    drawer: false,
+    items: []
+  }),
+  mounted () {
+    this.$eventBus.bus.$on(this.$eventBus.events.SET_LEFT_PANEL, (isOpen) => {
+      console.log('receive event? ' + isOpen)
+      this.drawer = !!isOpen
+    })
+  }
 }
 </script>

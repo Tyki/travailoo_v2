@@ -1,5 +1,7 @@
 <template>
   <v-toolbar>
+    <v-toolbar-side-icon @click.prevent="openLeftPanel"/>
+
     <v-btn icon @click.prevent="detectPosition">
       <v-icon>my_location</v-icon>
     </v-btn>
@@ -19,8 +21,12 @@
 </template>
 
 <script>
+import UserMixin from '@/mixins/userPage/user'
+import LayoutMixin from '@/mixins/userPage/layout'
+
 export default {
   name: 'Toolbar',
+  mixins: [UserMixin, LayoutMixin],
   methods: {
     detectPosition () {
       navigator.geolocation.getCurrentPosition(
@@ -31,9 +37,6 @@ export default {
           console.error(error)
         }
       )
-    },
-    openLoginModal () {
-      this.$eventBus.bus.$emit(this.$eventBus.events.MODAL_LOGIN)
     }
   }
 }

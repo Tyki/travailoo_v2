@@ -4,6 +4,7 @@ export default {
     isUserLogged () {
       return this.$store.state.user.jwt !== null
     }
-  }
+  },
+  render: () => ({})
 }
 </script>

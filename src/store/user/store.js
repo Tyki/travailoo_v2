@@ -1,7 +1,7 @@
 import * as types from './types'
 
 const state = {
-  jwt: null
+  jwt: true
 }
 
 const mutations = {

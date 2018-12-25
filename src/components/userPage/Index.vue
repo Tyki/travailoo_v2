@@ -25,6 +25,8 @@ import MapContainer from './map/MapContainer'
 import RightPanel from './layout/RightPanel'
 import ModalWrapper from './layout/ModalWrapper'
 import UserPanel from './layout/UserPanel'
+import UserMixin from '@/mixins/userPage/user'
+import LayoutMixin from '@/mixins/userPage/layout'
 
 export default {
   name: 'App',
@@ -34,6 +36,7 @@ export default {
     RightPanel,
     ModalWrapper,
     UserPanel
-  }
+  },
+  mixins: [UserMixin, LayoutMixin]
 }
 </script>
