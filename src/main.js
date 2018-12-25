@@ -1,12 +1,15 @@
 import Vue from 'vue'
-import App from './App.vue'
+import router from './router'
 import Vuex from 'vuex'
-import './registerServiceWorker'
-import store from './store'
-import eventBus from './services/eventBus/eventbus'
+import Vuetify from 'vuetify'
 
 import 'vuetify/dist/vuetify.min.css'
-import Vuetify from 'vuetify'
+
+import './registerServiceWorker'
+
+import store from './store'
+import eventBus from './services/eventBus/eventbus'
+import App from './App.vue'
 
 Vue.use(Vuex)
 Vue.use(Vuetify)
@@ -16,5 +19,6 @@ Vue.prototype.$eventBus = eventBus
 
 new Vue({
   render: h => h(App),
+  router,
   store
 }).$mount('#app')

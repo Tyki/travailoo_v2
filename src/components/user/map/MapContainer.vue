@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import eventBus from '../../services/eventBus/eventbus'
 /* eslint-disable no-undef */
 export default {
   name: 'MapContainer',
@@ -24,7 +23,7 @@ export default {
     },
 
     initEvents () {
-      eventBus.bus.$on(eventBus.events.MAP_SETCENTER, (position) => {
+      this.$eventBus.bus.$on(this.$eventBus.events.MAP_SETCENTER, (position) => {
         this.mapContainer.setView(new L.LatLng(position.coords.latitude, position.coords.longitude))
       })
     }
