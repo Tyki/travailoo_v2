@@ -1,11 +1,5 @@
 <template>
   <v-toolbar>
-    <v-menu offset-y>
-      <v-toolbar-side-icon @click.prevent="" slot="activator" />
-      <ConnectedUserPanel v-if="isUserLogged" />
-      <AnonymousUserPanel v-else />
-    </v-menu>
-
     <v-btn icon @click.prevent="detectPosition">
       <v-icon>my_location</v-icon>
     </v-btn>
@@ -18,9 +12,19 @@
 
     <v-spacer></v-spacer>
 
-    <v-btn icon @click="openLoginModal">
+    <v-btn icon @click="openLoginModal" v-if="!isUserLogged">
       Login
     </v-btn>
+    <v-menu v-else>
+      <v-toolbar-title slot="activator">
+        <v-avatar>
+          <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="avatar">
+        </v-avatar>
+        <span>John Doe</span>
+      </v-toolbar-title>
+
+      <ConnectedUserPanel />
+    </v-menu>
   </v-toolbar>
 </template>
 

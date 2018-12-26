@@ -8,12 +8,14 @@
 <script>
 import UserMixin from '@/mixins/userPage/user'
 import ConnectedUserPanel from './UserPanel/ConnectedUserPanel'
+import AnonymousUserPanel from './UserPanel/AnonymousUserPanel'
 
 export default {
   name: 'UserPanel',
   mixins: [UserMixin],
   components: {
-    ConnectedUserPanel
+    ConnectedUserPanel,
+    AnonymousUserPanel
   },
   data: () => ({
     drawer: false,

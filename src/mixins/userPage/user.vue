@@ -1,5 +1,5 @@
 <script>
-import { SET_USER_JWT } from '@/store/user/types'
+import { SET_USER_JWT, LOG_USER } from '@/store/user/types'
 
 export default {
   computed: {
@@ -10,6 +10,13 @@ export default {
   methods: {
     disconnectUser () {
       this.$store.commit(SET_USER_JWT, null)
+    },
+    connectUser (username, password) {
+      if (username && password) {
+        return this.$store.dispatch(LOG_USER, {username, password})
+      } else {
+        return Promise.reject(new Error('Invalid credentials'))
+      }
     }
   },
   render: () => ({})
