@@ -1,50 +1,26 @@
 <template>
-  <v-navigation-drawer
-      v-model="drawer"
-      absolute
-      temporary
-    >
-      <v-list class="pa-1">
-        <v-list-tile avatar>
-          <v-list-tile-avatar>
-            <img src="https://randomuser.me/api/portraits/men/85.jpg">
-          </v-list-tile-avatar>
-
-          <v-list-tile-content>
-            <v-list-tile-title>John Leider</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
-
-      <v-list class="pt-0" dense>
-        <v-divider></v-divider>
-
-        <v-list-tile
-          v-for="item in items"
-          :key="item.title"
-        >
-          <v-list-tile-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-tile-action>
-
-          <v-list-tile-content>
-            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
+  <v-navigation-drawer v-model="drawer" absolute temporary>
+    <ConnectedUserPanel v-if="isUserLogged" />
+    <AnonymousUserPanel v-else />
+  </v-navigation-drawer>
 </template>
 
 <script>
+import UserMixin from '@/mixins/userPage/user'
+import ConnectedUserPanel from './UserPanel/ConnectedUserPanel'
+
 export default {
   name: 'UserPanel',
+  mixins: [UserMixin],
+  components: {
+    ConnectedUserPanel
+  },
   data: () => ({
     drawer: false,
     items: []
   }),
   mounted () {
     this.$eventBus.bus.$on(this.$eventBus.events.SET_LEFT_PANEL, (isOpen) => {
-      console.log('receive event? ' + isOpen)
       this.drawer = !!isOpen
     })
   }

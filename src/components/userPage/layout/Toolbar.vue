@@ -1,6 +1,10 @@
 <template>
   <v-toolbar>
-    <v-toolbar-side-icon @click.prevent="openLeftPanel"/>
+    <v-menu offset-y>
+      <v-toolbar-side-icon @click.prevent="" slot="activator" />
+      <ConnectedUserPanel v-if="isUserLogged" />
+      <AnonymousUserPanel v-else />
+    </v-menu>
 
     <v-btn icon @click.prevent="detectPosition">
       <v-icon>my_location</v-icon>
@@ -23,10 +27,16 @@
 <script>
 import UserMixin from '@/mixins/userPage/user'
 import LayoutMixin from '@/mixins/userPage/layout'
+import ConnectedUserPanel from './UserPanel/ConnectedUserPanel'
+import AnonymousUserPanel from './UserPanel/AnonymousUserPanel'
 
 export default {
   name: 'Toolbar',
   mixins: [UserMixin, LayoutMixin],
+  components: {
+    ConnectedUserPanel,
+    AnonymousUserPanel
+  },
   methods: {
     detectPosition () {
       navigator.geolocation.getCurrentPosition(
