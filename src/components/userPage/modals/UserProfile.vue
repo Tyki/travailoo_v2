@@ -15,6 +15,21 @@
 
         <v-list subheader>
           <v-subheader>
+            Mes informations
+          </v-subheader>
+
+          <v-list-tile>
+            <v-list-tile-title>
+              <v-avatar>
+                <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="avatar">
+              </v-avatar>
+              <span>John Doe</span>
+            </v-list-tile-title>
+          </v-list-tile>
+        </v-list>
+
+        <v-list>
+          <v-subheader>
             Mes compétences
             <v-spacer />
             <v-btn v-if="!addSkillInput" @click="addSkillInput = true">Ajouter une compétence</v-btn>
@@ -43,14 +58,14 @@
           </v-list-tile>
         </v-list>
 
-        <v-list subheader>
+        <v-list>
           <v-subheader>
             Mes expériences
           </v-subheader>
-
+        <!--
           <v-list-tile v-if="userExperiences.length > 0">
             <v-list-tile-content>
-              <!-- User Skills -->
+
               <v-layout row wrap>
                 {{ userExperiences }}
               </v-layout>
@@ -66,8 +81,13 @@
               </v-flex>
               <v-btn @click="addSkill">Ajouter à la liste</v-btn>
             </v-layout>
-          </v-list-tile>
+          </v-list-tile> -->
+        </v-list>
 
+        <v-list>
+          <v-subheader>
+            Ma formation
+          </v-subheader>
         </v-list>
 
       </v-card>
