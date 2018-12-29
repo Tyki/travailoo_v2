@@ -31,6 +31,9 @@ export default {
   mounted () {
     this.initMap()
     this.initEvents()
+  },
+  destroyed () {
+    this.$eventBus.bus.$off(this.$eventBus.events.MAP_SETCENTER)
   }
 }
 </script>

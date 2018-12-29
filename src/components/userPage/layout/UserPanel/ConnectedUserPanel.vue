@@ -2,16 +2,36 @@
   <div>
     <v-list class="pt-0">
 
-      <v-list-tile
-        v-for="item in items"
-        :key="item.title"
-      >
+      <!-- Profile -->
+      <v-list-tile @click="showProfile">
         <v-list-tile-action>
-          <v-icon>{{ item.icon }}</v-icon>
+          <v-icon>person</v-icon>
         </v-list-tile-action>
 
         <v-list-tile-content>
-          <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+          <v-list-tile-title>Mon profil</v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
+
+      <!-- Messages -->
+      <v-list-tile @click="'#'">
+        <v-list-tile-action>
+          <v-icon>messages</v-icon>
+        </v-list-tile-action>
+
+        <v-list-tile-content>
+          <v-list-tile-title>Mes messages</v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
+
+      <!-- Alertes -->
+      <v-list-tile @click="'#'">
+        <v-list-tile-action>
+          <v-icon>notifications_actives</v-icon>
+        </v-list-tile-action>
+
+        <v-list-tile-content>
+          <v-list-tile-title>Mes alertes</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
     </v-list>
@@ -37,12 +57,10 @@ import UserMixin from '@/mixins/userPage/user'
 export default {
   name: 'ConnectedUserPanel',
   mixins: [UserMixin],
-  data: () => ({
-    items: [
-      {icon: 'person', title: 'Mon profil'},
-      {icon: 'message', title: 'Mes messages'},
-      {icon: 'notifications_active', title: 'Mes alertes'}
-    ]
-  })
+  methods: {
+    showProfile () {
+      this.$eventBus.bus.$emit(this.$eventBus.events.MODAL_PROFILE)
+    }
+  }
 }
 </script>

@@ -21,6 +21,7 @@
           <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="avatar">
         </v-avatar>
         <span>John Doe</span>
+        <v-icon>arrow_drop_down</v-icon>
       </v-toolbar-title>
 
       <ConnectedUserPanel />

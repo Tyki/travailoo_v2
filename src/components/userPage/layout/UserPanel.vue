@@ -25,6 +25,9 @@ export default {
     this.$eventBus.bus.$on(this.$eventBus.events.SET_LEFT_PANEL, (isOpen) => {
       this.drawer = !!isOpen
     })
+  },
+  destroyed () {
+    this.$eventBus.bus.$off(this.$eventBus.events.SET_LEFT_PANEL)
   }
 }
 </script>
